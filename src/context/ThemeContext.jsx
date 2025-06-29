@@ -1,11 +1,9 @@
-// src/context/ThemeContext.jsx
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Initialize theme from localStorage or system preference
     if (typeof window !== 'undefined') {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark' || savedTheme === 'light') {
@@ -13,7 +11,7 @@ export const ThemeProvider = ({ children }) => {
       }
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
-    return 'light'; // Default for SSR
+    return 'light'; 
   });
 
   useEffect(() => {
