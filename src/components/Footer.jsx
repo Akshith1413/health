@@ -8,7 +8,7 @@ const Footer = () => {
       <div className={`max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm ${
         theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
       }`}>
-        © {new Date().getFullYear()} HealthApp. All rights reserved.
+        © {new Date().getFullYear()} HealthFit. All rights reserved.
       </div>
     </footer>
   );

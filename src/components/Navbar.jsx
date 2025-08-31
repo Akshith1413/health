@@ -1,23 +1,38 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FiMoon, FiSun } from 'react-icons/fi';
+import { FiMoon, FiSun, FiArrowLeft } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
+
+  // Check if we're not on the home page
+  const showBackButton = location.pathname !== '/';
 
   return (
     <nav className="bg-white dark:bg-slate-800 shadow-sm relative z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
+            {/* Back Button - Only show when not on home page */}
+            {showBackButton && (
+              <button
+                onClick={() => navigate(-1)}
+                className="mr-4 p-2 rounded-full bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
+                aria-label="Go back"
+              >
+                <FiArrowLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+              </button>
+            )}
+            
             <span 
               onClick={() => navigate('/')}
               className="text-xl font-semibold text-gray-800 dark:text-white cursor-pointer"
             >
-              HealthApp
+              HealthFit
             </span>
           </div>
           <div className="flex items-center space-x-4">

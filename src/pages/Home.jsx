@@ -113,7 +113,7 @@ const Home = () => {
               className="mb-12"
             >
               <motion.h1
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-10 leading-tight"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-10 leading-tight mt-15"
                 whileHover={{ scale: 1.02 }}
               >
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-600 dark:from-indigo-400 dark:to-purple-500">
@@ -227,7 +227,7 @@ const Home = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.7 + i * 0.1 }}
-                    className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg p-6 rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 dark:border-slate-700"
+                    className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg p-6 rounded-2xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100 dark:border-slate-700 mb-5"
                     onClick={() => navigate(`/${item.toLowerCase().replace(/\s+/g, '')}`)}
                   >
                     <div className="w-12 h-12 mb-4 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center">
@@ -241,14 +241,16 @@ const Home = () => {
                 ))}
               </motion.div>
             )}
+            <br />
           </div>
+          <br />
         </main>
 
         
       </motion.div>
 
       {/* Landing Section - Appears after scrolling */}
-      <Landing />
+      {!user && <Landing />}
       {/* Footer positioned at bottom */}
         <motion.div 
           initial={{ opacity: 0 }}

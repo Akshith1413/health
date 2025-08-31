@@ -169,10 +169,10 @@ const AddFamily = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gray-50 dark:bg-slate-900"
+      className="flex flex-col min-h-screen bg-gray-50 dark:bg-slate-900"
     >
       <Navbar />
-      <main className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="bg-white dark:bg-slate-800 shadow overflow-hidden sm:rounded-lg">
           <div className="px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-slate-700">
             <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-white">Family Management</h3>
@@ -433,7 +433,10 @@ const AddFamily = () => {
           </div>
         </div>
       </main>
-      <Footer />
+       {/* Footer stays at bottom with a tiny gap */}
+  <div className="mt-4">
+    <Footer />
+  </div>
     </motion.div>
   );
 };
