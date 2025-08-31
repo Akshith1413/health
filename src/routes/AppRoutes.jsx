@@ -7,6 +7,8 @@ import NotFound from '../pages/NotFound';
 import Unauthorized from '../pages/Unauthorized';
 import ProtectedRoute from '../components/ProtectedRoute';
 import Landing from '../pages/Landing.jsx';
+import HealthProfile from '../pages/healthprofile.jsx';
+import AddFamily from '../pages/addfamily.jsx';
 const AppRoutes = () => {
   return (
     <Routes>
@@ -22,6 +24,9 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route path="/healthprofile" element={<ProtectedRoute><HealthProfile /></ProtectedRoute>} />
+      
+<Route path="/addfamily" element={<ProtectedRoute><AddFamily /></ProtectedRoute>} />
       <Route path="/unauthorized" element={<Unauthorized />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
