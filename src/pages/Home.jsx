@@ -219,7 +219,7 @@ const Home = () => {
                 transition={{ delay: 0.6 }}
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto"
               >
-                {['Dashboard', 'Analytics', 'Profile', 'Health Profile', 'Add Family'].map((item, i) => (
+                {['Dashboard', 'Analytics', 'Profile', 'Health Profile', 'Add Family', 'Groups', 'Supplements', 'Nutrition'].map((item, i) => (
                   <motion.div
                     key={item}
                     whileHover={{ y: -5 }}
