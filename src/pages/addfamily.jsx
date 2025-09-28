@@ -52,6 +52,13 @@ const AddFamily = () => {
 
   const handleCreateFamily = async (e) => {
     e.preventDefault();
+     
+    // Validate family name
+    if (!/^[a-zA-Z0-9]+$/.test(familyName)) {
+      setError('Family name can only contain letters and numbers (no spaces or special characters)');
+      setSuccess('');
+      return;
+    }
     try {
       const response = await axios.post('/family', { 
         familyName, 
@@ -307,9 +314,17 @@ const AddFamily = () => {
                     <input
                       type="text"
                       value={familyName}
-                      onChange={(e) => setFamilyName(e.target.value)}
+                      onChange={(e) => {
+                      setFamilyName(e.target.value);
+                      // Clear error when user starts typing
+                      if (error && /^[a-zA-Z0-9]+$/.test(e.target.value)) {
+                        setError('');
+                      }
+                    }}
                       className="block w-full border border-gray-300 dark:border-slate-600 rounded-md shadow-sm p-2 text-gray-900 dark:text-white bg-white dark:bg-slate-700"
                       required
+                    pattern="[a-zA-Z0-9]+"
+                    title="Family name can only contain letters and numbers (no spaces or special characters)"
                     />
                   </div>
                   

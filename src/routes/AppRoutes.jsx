@@ -12,6 +12,7 @@ import AddFamily from '../pages/addfamily.jsx';
 import Group from '../pages/Groups.jsx';
 import Supplements from '../pages/Supplements.jsx';
 import Nutrition from '../pages/Nutrition.jsx';
+import Appointment from '../pages/Appointments.jsx';
 const AppRoutes = () => {
   return (
     <Routes>
@@ -33,6 +34,7 @@ const AppRoutes = () => {
 <Route path="/groups" element={<ProtectedRoute><Group /></ProtectedRoute>} />
 <Route path="/supplements" element={<ProtectedRoute><Supplements /></ProtectedRoute>} />
 <Route path="/nutrition" element={<ProtectedRoute><Nutrition /></ProtectedRoute>} />
+<Route path="/appointments" element={<ProtectedRoute><Appointment /></ProtectedRoute>} />
       <Route path="/unauthorized" element={<Unauthorized />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
